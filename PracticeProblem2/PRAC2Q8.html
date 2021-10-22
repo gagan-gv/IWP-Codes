@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q8 19BCE0788</title>
+        <style>
+            input[type=number] {
+                -moz-appearance: textfield;
+                padding: 5px;
+                width: 200px;
+            }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <label for="comp">Credit Card:</label>
+            <select name="comp" id="comp">
+                <option value="ax">American Express</option>
+                <option value="dc">Diner's Club</option>
+                <option value="discover">Discover</option>
+                <option value="jcb">JCB</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="visa">Visa</option>
+            </select>
+            <br>
+            <br>
+            <label for="cardNumber">Number:</label>
+            <input type="number" name="cardNumber" id="cardNumber" />
+            <br>
+            <br>
+            <button onclick="validate()">Validate</button>
+        </form>
+        <script>
+            function validate(){
+                let cc = document.getElementById('comp').value
+                let number = document.getElementById('cardNumber').value
+
+                if(cc === 'ax'){
+                    let no = /^3[47][0-9]{13}$/
+                    if(!number.match(no)){
+                        alert('Not a valid AmEx Card')
+                    }else{
+                        alert('Accepted')
+                    }
+                }else if(cc === 'dc'){
+                    let no1 = /^30[05][0-9]{11}$/
+                    let no2 = /^3[68][0-9]{12}$/
+                    if(number.match(no1) || number.match(no2)){
+                        alert('Accepted')
+                    }else{
+                        alert('Not a valid Diner\'s Club card')
+                    }
+                }else if(cc === 'discover'){
+                    let no1 = /^6011[0-9]{12}$/
+                    let no2 = /^65[0-9]{14}$/
+                    if(number.match(no1) || number.match(no2)){
+                        alert('Accepted')
+                    }else{
+                        alert('Not a valid Discover card')
+                    }
+                }else if(cc === 'jcb'){
+                    let no1 = /^(2131 | 1800)[0-9]{11}$/
+                    let no2 = /^35[0-9]{14}$/
+                    if(number.match(no1) || number.match(no2)){
+                        alert('Accepted')
+                    }else{
+                        alert('Not a valid JCB card')
+                    }
+                }else if(cc === 'mastercard'){
+                    let no = /^5[1-5][0-9]{14}$/
+                    if(number.match(no)){
+                        alert('Accepted')
+                    }else{
+                        alert('Not a valid Master Card card')
+                    }
+                }else if(cc === 'visa'){
+                    let no1 = /^4[0-9]{15}$/
+                    let no2 = /^4[0-9]{12}$/
+                    if(number.match(no1) || number.match(no2)){
+                        alert('Accepted')
+                    }else{
+                        alert('Not a valid Visa card')
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

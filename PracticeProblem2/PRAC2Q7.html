@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q7 19BCE0788</title>
+    </head>
+    <body>
+        <div id="loading">
+            <h1>Quiz</h1>
+            <h3>Rules</h3>
+            <ol>
+                <li>1 mark for each correct question</li>
+                <li>There is no negative marking</li>
+                <li>You'll have 15sec to complete the test. After that it'll be disabled.</li>
+            </ol>
+            <button type="button" onclick="start()">Start</button>
+        </div>
+        <div id="quiz">
+            <h3>Time Left: <span id="timer"></span></h3>
+            <ol>
+                <li>What's the capital of India?<br>
+                    <input type="radio" value="Delhi" name="ans1"><label>Delhi</label><br>
+                    <input type="radio" value="Chennai" name="ans1"><label>Chennai</label><br>
+                    <input type="radio" value="Mumbai" name="ans1"><label>Mumbai</label><br>
+                </li>
+                <li>Which of this is not a frontend framework?<br>
+                    <input type="radio" value="Gatsby" name="ans2"><label>Gatsby</label><br>
+                    <input type="radio" value="Node" name="ans2"><label>Node</label><br>
+                    <input type="radio" value="Vue" name="ans2"><label>Vue</label><br>
+                </li>
+                <li>Which of this is not a scripting language?<br>
+                    <input type="radio" value="JS" name="ans3"><label>JS</label><br>
+                    <input type="radio" value="R" name="ans3"><label>R</label><br>
+                    <input type="radio" value="C++" name="ans3"><label>C++</label><br>
+                </li>
+            </ol>
+            <button type="submit" onclick="submit()">Submit</button>
+        </div>
+        <script>
+            let sec = 15
+            let time = setInterval(timer, '1000')
+
+            function timer(){
+                let a1 = document.getElementsByName('ans1')
+                let a2 = document.getElementsByName('ans2')
+                let a3 = document.getElementsByName('ans3')
+                document.getElementById('timer').innerHTML = sec + " sec"
+                sec--
+                if(sec === -1){
+                    clearInterval(time)
+                    for(let i = 0; i < 3; i++){
+                        a1[i].disabled = true
+                        a2[i].disabled = true
+                        a3[i].disabled = true
+                    }
+                }
+            }
+
+            function start(){
+                timer()
+            }
+
+            function submit(){
+                let res = 0
+                let a1 = document.querySelector('input[name="ans1"]:checked').value
+                let a2 = document.querySelector('input[name="ans2"]:checked').value
+                let a3 = document.querySelector('input[name="ans3"]:checked').value
+                if(a1 === 'Delhi'){
+                    res++
+                }
+                if(a2 === 'Node'){
+                    res++
+                }
+                if(a3 === 'C++'){
+                    res++;
+                }
+                alert('You scored ' + res + "/3")
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q5 19BCE0788</title>
+    </head>
+    <body>
+
+        <h1>Scramble Me</h1>
+        <div class="main">
+            <div id="game-container" class="hidden">        
+                <div id="guess-container">
+                    <p id="scramble"></p>
+                    <input id="guess" type="text" placeholder="Enter your guess">
+                    <br>
+                    <br>
+                    <button id="submit">Submit</button>
+                    <button id="reset">Reset</button>
+                    <button id="hint">Hint</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <script>
+            const submit = document.getElementById('submit')
+            const reset = document.getElementById('reset')
+            const hint = document.getElementById('hint')
+            const scramble = document.getElementById('scramble')
+            const gameContainer = document.getElementById("game-container")
+            const guessContainer = document.getElementById("guess-container")
+
+            const words = ['HTML', 'CSS', 'JS', 'PHP']
+            const scramWords = ['MTLH', 'SCS', 'SJ', 'HPP']
+            const hints = ['Common Markup Language', 'Styling Sheet used with a markup language', 'Web Scripting language', 'Most used language for web development']
+
+            //let random
+
+            function start(){
+                let random = Math.floor(Math.random() * words.length)
+                scramble.innerHTML = scramWords[random]
+                reset.addEventListener("click", start)
+                submit.addEventListener("click", x => {
+                    let guess = String(document.getElementById('guess').value)
+                    if(guess === words[random]){
+                        alert("You guessed it right!!")
+                        start()
+                    }else{
+                        alert('Try Again')
+                    }
+                })
+                hint.addEventListener("click", x => {
+                    x.preventDefault()
+                    alert(hints[random])
+                })
+            }
+
+            window.onload = start()
+
+        </script>
+    </body>
+</html>

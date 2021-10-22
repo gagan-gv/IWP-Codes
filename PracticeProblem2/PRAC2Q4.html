@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q4 19BCE0788</title>
+    </head>
+    <body>
+        <div class="box">
+            <form>
+                <input type="number" name="time" id="time" placeholder="Number of Hours Parked" style="width: 200px;"><br>
+                <button onclick="calculateCharges()">Calculate Parking Fee</button>
+            </form>
+        </div>
+        <script>
+            let garageCharge = 2.0
+            let additionalCharge = 0.5
+            let maxCharge = 10.0
+
+            function calculateCharges(){
+                let time = Number(document.getElementById('time').value)
+                if(time <= 3){
+                    alert('You have been charged: $' +  garageCharge)
+                }else if(time > 3 && time < 24){
+                    alert('You have been charged: $' + (garageCharge + additionalCharge*(time-3)))
+                }else if(time === 24){
+                    alert('You have been charged: $' + maxCharge)
+                }else{
+                    alert('The car is no more parked')
+                }
+            }
+        </script>
+    </body>
+</html>

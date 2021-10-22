@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q6 19BCE0788</title>
+    </head>
+    <body>
+        <script>
+
+            function customSort(arr, n){
+                let temp1 = arr.slice(0, Math.floor(n/2))
+                temp1.sort(function(a, b){
+                    return a - b
+                })
+
+                let temp2 = arr.slice(Math.floor(n/2), Math.floor(n/2) + n)
+                temp2.sort(function(a, b) {
+                    return b - a
+                })
+
+                return temp1.concat(temp2)
+            }
+
+            function arrayEquals(a, b){
+                return (a.length === b.length && a.every((val, index) => val === b[index]))
+            }
+
+            window.onload = () => {
+                let n = Number(prompt('Enter the array size'))
+
+                arr = []
+
+                for(let i = 0; i < n; i++){
+                    arr.push(Number(prompt('Enter array element ' + (i+1))))
+                }
+
+                let temp = customSort(arr, n)
+
+                if(arrayEquals(arr, temp)){
+                    document.write('The number is half increasing and half decreasing')
+                }else{
+                    document.write('The number is not half increasing and half decreasing')
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q11 19BCE0788</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <input type="text" placeholder="Enter your name" id="name"><br>
+        <button id="btn" type="button">Destiny Number...</button>
+
+        <div>
+            <h4 id="h4"></h4>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('#btn').click(function(){
+                    let name = $('#name').val()
+                    //alert(name)
+                    obj = {
+                        'a': 1,
+                        'i': 1,
+                        'j': 1,
+                        'q': 1,
+                        'y': 1,
+                        'b': 2,
+                        'k': 2,
+                        'r': 2,
+                        'c': 3,
+                        'g': 3,
+                        'l': 3,
+                        's': 3,
+                        'd': 4,
+                        'm': 4,
+                        't': 4,
+                        'e': 5,
+                        'h': 5,
+                        'n': 5,
+                        'x': 5,
+                        'u': 6,
+                        'v': 6,
+                        'w': 6,
+                        'o': 7,
+                        'z': 7,
+                        'f': 8,
+                        'p': 8
+                    }
+                    let sum = 0
+                    let destinyNumber
+
+                    let arr = name.split("")
+                    //alert(arr)
+
+                    for(let i = 0; i < arr.length; i++){
+                        sum += obj[arr[i]]
+                    }
+
+                    //alert(sum)
+
+                    if(sum === 11 || sum === 22 || sum === 33){
+                        destinyNumber = sum
+                    }else{
+                        while(sum > 9){
+                            let x = sum
+                            let temp = 0
+                            while(x > 0){
+                                temp += (x % 10)
+                                x /= 10
+                            }
+                            sum = temp
+                        }
+                        destinyNumber = parseInt(sum)
+                        //alert(destinyNumber)
+                    }
+
+                    if(destinyNumber === 1){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You radiate with a dynamic and efficient energy.")
+                        $("#h4").slideDown('slow')
+                    }else if(destinyNumber === 2){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You appear friendly and unpretentious.")
+                        $("#h4").slideDown('slow')
+                    }else if(destinyNumber === 3){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You are uplifting, inspiring, and charming.")
+                        $("#h4").slideDown('slow')
+                    }else if(destinyNumber === 4){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You love the intimacy, consistency, and the security a family provides.")
+                        $("#h4").slideDown('slow')
+                    }else if(destinyNumber === 5){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You are a stimulating person.")
+                        $("#h4").slideDown('slow')
+                    }else if(destinyNumber === 6){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You radiate understanding and compassion.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 7){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You seem mysterious and different.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 8){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You appear strong and powerful.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 9){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You have an impressive and aristocratic bearing.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 11){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You have worked hard to gain confidence and overcome, at least to some extent, an in-born shyness.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 22){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You radiate reliability and consistency.")
+                        $("#h4").slideDown("slow")
+                    }else if(destinyNumber === 33){
+                        $('#h4').text('Your destiny number is ' + destinyNumber + "<br>You inspire confidence.")
+                        $("#h4").slideDown("slow")
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

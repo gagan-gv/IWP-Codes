@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAC2 Q3 19BCE0788</title>
+    <style>
+        #right>img{
+            width: 500px;
+            height: 500px;
+        }
+        #right>#content{
+            position: absolute;
+            top: 50%;
+            left: 12.5%;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <aside id="left">
+        <form id="form">
+            <fieldset>
+                <legend>Image</legend>
+                <label for="url">Image URL:</label>
+                <input type="url" name="url" id="url" placeholder="Enter the image URL"><br>
+                <button type="button" onclick="changeImage()">Change Image</button><br>
+                <label>Image Position</label><br>
+                <button type="button" onclick="position('left')">Left</button>
+                <button type="button" onclick="position('right')">Right</button>
+                <button type="button" onclick="position('bg')">BG</button>
+            </fieldset>
+            <fieldset>
+                <legend>Text</legend>
+                <label for="content">Content:</label>
+                <input type="text" id="text" name="content" value="Greetings"><br>
+                <button type="button" onclick="changeText()">Change Text</button><br>
+                <label for="size">Font Size:</label>
+                <input type="number" id="size" name="size"><br>
+                <button type="button" onclick="changeSize()">Change Text Size</button><br>
+                <label for="color">Font Color:</label>
+                <input type="color" name="color" id="color"><br>
+                <button type="button" onclick="changeColor()">Change Font Color</button>
+            </fieldset>
+        </form>
+    </aside>
+
+    <aside id="right">
+        <img src="https://i.pinimg.com/originals/fe/1e/97/fe1e97527467de8ba379a86cac45d84d.jpg" alt="image" id="image">
+        <p id="content">Greetings</p>
+    </aside>
+
+    <script>
+        function changeImage(){
+            let img = document.getElementById('image')
+            let url = document.getElementById('url').value
+            img.src = url
+        }
+
+        function position(pos){
+            let img = document.getElementById('image')
+            if(pos === 'left'){
+                img.style.float = 'left'
+            }else if(pos === 'right'){
+                img.style.float = 'right'
+            }else if(pos === 'bg'){
+                img.style.display = 'none'
+                let pic = document.getElementById('right')
+                pic.style.background = "url('" + url + "')"
+            }
+        }
+
+        function changeText(){
+            let content = document.getElementById('content')
+            let cont = document.getElementById('text').value
+            content.innerHTML = cont
+        }
+
+        function changeSize(){
+            let content = document.getElementById('content')
+            let size = document.getElementById('size').value
+
+            content.style.fontSize = size+"px"
+        }
+
+        function changeColor(){
+            let content = document.getElementById('content')
+            let color = document.getElementById('color').value
+
+            content.style.color = color
+        }
+    </script>
+</body>
+</html>

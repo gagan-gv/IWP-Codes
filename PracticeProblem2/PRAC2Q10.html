@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC2 Q10 19BCE0788</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h2><span class="color">Blue</span> Cow by Gellet Burgees(Published by The Lark, 1885)</h2>
+        <p>
+            I never saw a <span class="color">blue</span> cow, I never hope to see one; But I can tell you, anyhow, I'd rather see than be one.
+        </p>
+        <label for="tf">Change the cow's color to</label>
+        <input type="text" name="tf" id="tf">
+        <button id="clicked">Submit</button>
+
+        <script>
+            $(document).ready(function(){
+                let button = $('#clicked')
+                $(button).click(function(){
+                    let inpVal = $('#tf').val()
+                    let el = $('.color')
+                    $(el).html(inpVal)
+                })
+            })
+        </script>
+    </body>
+</html>
