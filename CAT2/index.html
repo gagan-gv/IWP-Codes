@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CAT2 Q3 19BCE0788</title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                background: linear-gradient(to right, #9966cb, #a3a2db);
+            }
+            .box{
+                width: 800px;
+                height: max-content;
+                position: relative;
+                margin: 20% auto;
+                background: #f0f0f0;
+                padding: 50px;
+                box-shadow: 25% rgba(50, 50, 50, 0.5);
+                border-radius: 25px;
+                overflow: hidden;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>Gagan Chordia 19BCE0788</h1>
+            <p id="res"></p>
+        </div>
+
+        <script>
+
+            function primeCheck(arr){
+                let z = []
+                for(let i = 0; i < arr.length; i++){
+                    if(arr[i] > 3){
+                        for(let j = 2; j < arr.length; j++){
+                            if(arr[i] % j === 0){
+                                z.push('np')
+                                break
+                            }else{
+                                if(j === arr.length - 1){
+                                    z.push('p')
+                                }
+                            }
+                        }
+                    }else{
+                        z.push('p')
+                    }
+                }
+                return z
+            }
+
+            function arrayEquals(a, b){
+                return (a.length === b.length && a.every((val, index) => val === b[index]))
+            }
+
+            function opChecker(n, k){
+                let temp1 = []
+                let temp2 = []
+
+                for(let i = 0; i < (n/2); i++){
+                    temp1.push('p')
+                    temp2.push('np')
+                }
+                if(n % 2 === 0){
+                    for(let i = n/2; i < n; i++){
+                        temp1.push('np')
+                        temp2.push('p')
+                    }
+                }else{
+                    for(let i = (n/2) + 1; i < n; i++){
+                        temp1.push('np')
+                        temp2.push('p')
+                    }
+                }
+
+                let res = document.getElementById('res')
+
+                if(arrayEquals(k, temp1) || arrayEquals(k, temp2)){
+                    res.innerHTML = 'The number is half prime and half non-prime'
+                }else{
+                    res.innerHTML = 'The number is not half prime and half non-prime'
+                }
+                
+                //alert(temp1)
+                //alert(temp2)
+            }
+
+            window.onload = () => {
+                let n = Number(prompt('Enter the array size'))
+
+                arr = []
+
+                for(let i = 0; i < n; i++){
+                    arr.push(Number(prompt('Enter array element ' + (i+1))))
+                }
+
+                //alert(arr)
+                //alert(arr[1])
+
+                let k = primeCheck(arr)
+
+                //alert(k)
+
+                opChecker(n, k)
+            }
+        </script>
+    </body>
+</html>
