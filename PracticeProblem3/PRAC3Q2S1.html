@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRAC3 Q2 19BCE0788</title>
+        <style>
+            body{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            form{
+                border: 2px #303030 outset;
+                padding: 15px;
+            }
+            td:first-child{
+                text-align: right;
+            }
+            input[type="text"],
+            input[type="email"],
+            select{
+                width: 250px;
+                padding: 10px;
+                border: 2px solid black;
+                border-radius: 10px;
+            }
+            button{
+                padding: 15px 45px;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+                background: #edcd00;
+                font-size: medium;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="http://localhost/IWP%20Prac3/PRAC3Q2.php" method="post">
+            <table cellpadding="10px">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="name" id="name" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" name="address" id="address" required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="mail" id="mail" required></td>
+                </tr>
+                <tr>
+                    <td>How many pieces of fruit do you eat per day?</td>
+                    <td>
+                        <input type="radio" name="pieces" id="pieces" value="0" required><span>0</span><br>
+                        <input type="radio" name="pieces" id="pieces" value="1" required><span>1</span><br>
+                        <input type="radio" name="pieces" id="pieces" value="2" required><span>2</span><br>
+                        <input type="radio" name="pieces" id="pieces" value="3" required><span>More than 2</span><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your favorite fruit</td>
+                    <td>
+                        <select name="fruit" id="fruit" required>
+                            <option value="apple">Apple</option>
+                            <option value="banana">Banana</option>
+                            <option value="plum">Plum</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
